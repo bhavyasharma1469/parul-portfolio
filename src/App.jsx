@@ -145,21 +145,21 @@ const HomeView = ({ isDarkMode }) => (
       <div className="max-w-5xl mx-auto py-12 sm:py-16 lg:py-20 px-4">
         <div className="text-center mb-16 sm:mb-24 lg:mb-32 relative z-10">
           <p className={`font-mono text-xs sm:text-sm uppercase tracking-[0.3em] sm:tracking-[0.4em] mb-4 sm:mb-6 ${isDarkMode ? 'text-emerald-400' : 'text-emerald-800'}`}>
-            {CONTACT.title}
+          {CONTACT.title}
           </p>
           <h1 className={`text-4xl sm:text-6xl md:text-7xl lg:text-[10rem] font-serif font-bold tracking-tighter mb-8 sm:mb-12 ${isDarkMode ? 'text-stone-100' : 'text-stone-900'}`}>
-            {CONTACT.name}
+          {CONTACT.name}
           </h1>
           <p className={`text-lg sm:text-xl md:text-2xl lg:text-3xl font-serif italic max-w-4xl mx-auto leading-relaxed ${isDarkMode ? 'text-stone-400' : 'text-stone-600'}`}>
             Sustainable visible-light-driven synthesis of bioactive molecules. <br className="hidden sm:block" />
             <span className={`opacity-90 font-sans not-italic text-base sm:text-lg md:text-xl tracking-wide sm:tracking-widest uppercase mt-3 sm:mt-4 block ${isDarkMode ? 'text-emerald-500' : 'text-emerald-900'} font-semibold`}>Oklahoma State University — Department of Chemistry.</span>
           </p>
-        </div>
+      </div>
        <div className={`p-6 sm:p-12 lg:p-16 border-t-4 sm:border-t-6 lg:border-t-8 border-emerald-800 shadow-2xl relative backdrop-blur-md ${isDarkMode ? 'bg-stone-950/80' : 'bg-white/95'}`}>
          <h3 className="text-xs font-mono font-bold uppercase tracking-widest mb-8 sm:mb-12 text-amber-600 border-b border-amber-600/20 pb-3 w-max">Research Statement</h3>
          <p className={`text-xl sm:text-2xl lg:text-3xl font-serif leading-relaxed ${isDarkMode ? 'text-stone-200' : 'text-stone-800'} first-letter:text-5xl sm:first-letter:text-7xl lg:first-letter:text-9xl first-letter:font-bold first-letter:mr-3 sm:first-letter:mr-4 lg:first-letter:mr-6 first-letter:float-left first-letter:leading-none ${isDarkMode ? 'first-letter:text-emerald-500' : 'first-letter:text-emerald-900'}`}>
-           {OBJECTIVE}
-         </p>
+          {OBJECTIVE}
+        </p>
        </div>
     </div>
   </ViewWrapper>
@@ -217,17 +217,17 @@ const AcademicView = ({ isDarkMode }) => (
         </div>
       </section>
        <section className={`p-6 sm:p-12 lg:p-16 border-t-[8px] sm:border-t-[10px] lg:border-t-[12px] border-amber-600 backdrop-blur-xl ${isDarkMode ? 'bg-stone-950/70' : 'bg-white/95 shadow-2xl'}`}>
-         <DossierHeader title="Awards & Fellowships" icon={Trophy} isDarkMode={isDarkMode} />
+        <DossierHeader title="Awards & Fellowships" icon={Trophy} isDarkMode={isDarkMode} />
          <div className="grid gap-8 sm:gap-12 lg:gap-16">
           {HONORS.map((h, i) => (
             <div key={i} className="border-b border-stone-200 dark:border-stone-800 pb-10 last:border-0 last:pb-0">
               <span className="text-xs sm:text-sm font-mono opacity-50 block mb-2 sm:mb-3 text-stone-500 font-bold uppercase tracking-[0.2em] sm:tracking-[0.3em]">{h.year}</span>
               <p className={`text-xl sm:text-2xl md:text-3xl lg:text-4xl font-serif font-bold ${isDarkMode ? 'text-stone-100' : 'text-stone-900'} leading-tight mb-3 sm:mb-4`}>
-               {h.title}
-             </p>
+                {h.title}
+              </p>
              <p className={`text-sm sm:text-base lg:text-lg font-mono uppercase mt-3 sm:mt-4 tracking-[0.15em] sm:tracking-[0.25em] ${isDarkMode ? 'text-emerald-400' : 'text-emerald-800'} font-bold`}>
-               {h.org}
-             </p>
+                {h.org}
+              </p>
             </div>
           ))}
         </div>
@@ -254,18 +254,18 @@ const OutputView = ({ isDarkMode }) => (
              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 sm:gap-10 mb-4 sm:mb-6">
                <span className={`text-xs font-mono font-bold uppercase tracking-[0.2em] sm:tracking-[0.3em] ${isDarkMode ? 'text-emerald-400' : 'text-emerald-800'}`}>{pub.journal}</span>
                <span className={`text-sm font-serif font-bold italic font-mono ${isDarkMode ? 'text-stone-400' : 'text-stone-500'}`}>{pub.year}</span>
-             </div>
+            </div>
              <h4 className={`text-2xl sm:text-3xl lg:text-4xl font-serif italic mb-6 sm:mb-8 leading-snug ${isDarkMode ? 'text-stone-50' : 'text-stone-800'} decoration-amber-600/0 hover:decoration-amber-600 transition-all duration-300 underline underline-offset-8 font-bold`}>
-               {pub.title}
-             </h4>
+              {pub.title}
+            </h4>
              <p className={`text-lg sm:text-xl lg:text-2xl mb-8 sm:mb-12 ${isDarkMode ? 'text-stone-300' : 'text-stone-700'} font-serif leading-relaxed italic font-medium`}>{pub.authors}</p>
              <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-12">
                <a href={`https://doi.org/${pub.doi}`} target="_blank" rel="noopener noreferrer" className={`text-xs sm:text-sm font-mono underline underline-offset-8 decoration-stone-300 hover:decoration-amber-600 transition-all font-medium ${isDarkMode ? 'text-stone-300 hover:text-stone-100' : 'text-stone-600 hover:text-stone-900'}`}>
-                 DOI: {pub.doi}
-               </a>
+                DOI: {pub.doi}
+              </a>
                {pub.featured && <span className={`text-[10px] sm:text-[12px] font-mono font-bold px-4 sm:px-5 py-2 uppercase rounded-full tracking-wide sm:tracking-widest shadow-sm w-fit ${isDarkMode ? 'bg-amber-900/80 text-amber-200' : 'bg-amber-100 text-amber-800'}`}>Featured Selection</span>}
              </div>
-           </div>
+            </div>
             );
           })}
       </div>
@@ -283,35 +283,35 @@ const ServiceView = ({ isDarkMode }) => (
            <ul className={`space-y-6 sm:space-y-8 lg:space-y-10 font-mono text-sm sm:text-base uppercase tracking-[0.15em] sm:tracking-[0.25em] ${isDarkMode ? 'text-stone-400' : 'text-stone-600'}`}>
              <li className="flex items-center gap-4 sm:gap-6"><CheckCircle2 className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-emerald-700 flex-shrink-0" /><span className="break-words">CHEM3013 — Organic Survey</span></li>
              <li className="flex items-center gap-4 sm:gap-6"><CheckCircle2 className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-emerald-700 flex-shrink-0" /><span className="break-words">CHEM3012 — Lab Section</span></li>
-           </ul>
+          </ul>
          </div>
          <div className={`p-6 sm:p-12 lg:p-16 border-2 sm:border-4 ${isDarkMode ? 'border-stone-800' : 'border-stone-200'} border-dotted flex flex-col justify-center`}>
            <h4 className={`text-xl sm:text-2xl lg:text-3xl font-bold font-serif mb-6 sm:mb-8 lg:mb-12 italic ${isDarkMode ? 'text-stone-100' : 'text-stone-900'} border-b-2 border-amber-600/40 pb-3 sm:pb-4 w-max`}>Future PUI Educator</h4>
            <p className={`text-lg sm:text-xl md:text-2xl lg:text-3xl opacity-90 leading-relaxed font-serif italic ${isDarkMode ? 'text-stone-300' : 'text-stone-700'}`}>"I integrate impactful research with inclusive, evidence-based pedagogy to create engaging undergraduate environments."</p>
-         </div>
+        </div>
       </div>
-       <DossierHeader title="Outreach & Service" icon={Heart} isDarkMode={isDarkMode} />
+      <DossierHeader title="Outreach & Service" icon={Heart} isDarkMode={isDarkMode} />
        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-12 mb-20 sm:mb-32 lg:mb-40">
         {SERVICE.map((s, idx) => (
            <div key={idx} className={`p-6 sm:p-8 lg:p-12 border transition-all backdrop-blur-md ${isDarkMode ? 'border-stone-800 bg-stone-950/60' : 'border-stone-200 bg-white/95 shadow-xl'}`}>
              <h4 className={`text-xs sm:text-sm font-mono font-bold uppercase tracking-[0.2em] sm:tracking-[0.35em] mb-8 sm:mb-10 lg:mb-12 pb-4 sm:pb-5 border-b ${isDarkMode ? 'border-stone-800 text-stone-200' : 'border-stone-200 text-stone-800'}`}>{s.category}</h4>
              <ul className="space-y-4 sm:space-y-5 lg:space-y-6">
-               {s.items.map((item, i) => (
+              {s.items.map((item, i) => (
                  <li key={i} className={`text-base sm:text-lg flex gap-3 sm:gap-4 lg:gap-5 leading-relaxed ${isDarkMode ? 'text-stone-400' : 'text-stone-600'} font-serif italic`}><ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-amber-600 flex-shrink-0 mt-1" /><span className="break-words">{item}</span></li>
-               ))}
-             </ul>
+              ))}
+            </ul>
            </div>
         ))}
          <div className={`p-6 sm:p-8 lg:p-12 border backdrop-blur-md ${isDarkMode ? 'border-stone-800 bg-stone-950/60' : 'border-stone-200 bg-white/95 shadow-xl'}`}>
            <h4 className={`text-xs sm:text-sm font-mono font-bold uppercase tracking-[0.2em] sm:tracking-[0.35em] mb-8 sm:mb-10 lg:mb-12 pb-4 sm:pb-5 border-b ${isDarkMode ? 'border-stone-800 text-stone-200' : 'border-stone-200 text-stone-800'}`}>Credentials</h4>
            <ul className="space-y-8 sm:space-y-10 lg:space-y-12">
-             {LICENSES.map((l, i) => (
+            {LICENSES.map((l, i) => (
                <li key={i} className="space-y-3 sm:space-y-4">
                  <p className={`font-bold text-lg sm:text-xl lg:text-2xl leading-tight ${isDarkMode ? 'text-stone-100' : 'text-stone-900'} border-l-4 border-amber-600 pl-3 sm:pl-4`}>{l.title}</p>
                  <p className="text-xs opacity-60 font-mono uppercase text-stone-500 tracking-[0.15em] sm:tracking-[0.2em]">{l.org} <br /> {l.date}</p>
-               </li>
-             ))}
-           </ul>
+              </li>
+            ))}
+          </ul>
          </div>
       </div>
     </div>
@@ -352,31 +352,31 @@ const App = () => {
     }
   };
 
-    return (
+  return (
       <div className={`min-h-screen transition-colors duration-1000 font-sans overflow-x-hidden ${isDarkMode ? 'bg-stone-950 text-stone-200' : 'bg-stone-50 text-stone-800'}`}>
       <InteractiveLattice isDarkMode={isDarkMode} />
-       <nav className={`fixed top-0 left-0 right-0 z-50 border-b transition-all duration-700 ${isDarkMode ? 'bg-stone-950/95 border-stone-800 shadow-stone-950' : 'bg-white/95 border-stone-200 shadow-md'} backdrop-blur-xl`}>
+      <nav className={`fixed top-0 left-0 right-0 z-50 border-b transition-all duration-700 ${isDarkMode ? 'bg-stone-950/95 border-stone-800 shadow-stone-950' : 'bg-white/95 border-stone-200 shadow-md'} backdrop-blur-xl`}>
          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-4 sm:py-6 lg:py-8 flex justify-between items-center">
            <button onClick={() => setCurrentPage(PAGES.HOME)} className={`text-2xl sm:text-3xl lg:text-4xl font-serif font-bold tracking-tighter ${isDarkMode ? 'text-stone-100' : 'text-stone-900'} hover:text-emerald-700 transition-all hover:scale-105 active:scale-95`}>
-             P<span className="text-emerald-800">S</span>.
-           </button>
-           
+            P<span className="text-emerald-800">S</span>.
+          </button>
+
            {/* Desktop Navigation */}
            <div className="hidden lg:flex items-center gap-16">
              <div className="flex gap-14 text-[12px] font-mono font-bold uppercase tracking-[0.35em] text-stone-400">
-               {Object.keys(PAGES).map((key) => (
+              {Object.keys(PAGES).map((key) => (
                  <button key={key} onClick={() => setCurrentPage(PAGES[key])} className={`transition-all pb-2 border-b-4 hover:text-emerald-800 ${currentPage === PAGES[key] ? 'text-emerald-800 border-amber-600' : 'border-transparent hover:text-emerald-700 hover:border-emerald-200'}`}>
-                   {PAGES[key]}
-                 </button>
-               ))}
-             </div>
+                  {PAGES[key]}
+                </button>
+              ))}
+            </div>
              <div className={`flex items-center gap-8 pl-10 border-l-2 ${isDarkMode ? 'border-stone-800' : 'border-stone-200'}`}>
                <button onClick={toggleTheme} aria-label="Toggle Theme" className={`p-4 rounded-full transition-all hover:scale-110 active:rotate-45 ${isDarkMode ? 'bg-stone-900 text-amber-400 hover:bg-stone-800' : 'bg-stone-100 text-stone-600 hover:bg-stone-200'} shadow-lg`}>
-                 {isDarkMode ? <Sun className="w-6 h-6" /> : <Moon className="w-6 h-6" />}
-               </button>
-               <button className="bg-emerald-900 text-stone-50 px-6 lg:px-10 py-3 lg:py-4 text-[10px] lg:text-[12px] font-mono font-bold uppercase tracking-[0.2em] hover:bg-emerald-800 transition-all flex items-center gap-3 lg:gap-4 shadow-2xl active:scale-95 group">
+                {isDarkMode ? <Sun className="w-6 h-6" /> : <Moon className="w-6 h-6" />}
+              </button>
+               <a href="/Parul_Sharma_CV.pdf" download="Parul_Sharma_CV.pdf" className="bg-emerald-900 text-stone-50 px-6 lg:px-10 py-3 lg:py-4 text-[10px] lg:text-[12px] font-mono font-bold uppercase tracking-[0.2em] hover:bg-emerald-800 transition-all flex items-center gap-3 lg:gap-4 shadow-2xl active:scale-95 group">
                  CV <Download className="w-4 h-4 lg:w-5 lg:h-5 transition-transform group-hover:translate-y-1" />
-               </button>
+               </a>
              </div>
            </div>
 
@@ -387,8 +387,8 @@ const App = () => {
              </button>
              <button onClick={toggleMobileMenu} className={`p-3 rounded-full transition-all ${isDarkMode ? 'bg-stone-900 text-stone-100 hover:bg-stone-800' : 'bg-stone-100 text-stone-900 hover:bg-stone-200'} shadow-lg`}>
                {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-             </button>
-           </div>
+              </button>
+            </div>
          </div>
 
          {/* Mobile Menu */}
@@ -407,13 +407,13 @@ const App = () => {
                    {PAGES[key]}
                  </button>
                ))}
-               <button className="w-full mt-6 bg-emerald-900 text-stone-50 px-6 py-4 text-xs font-mono font-bold uppercase tracking-[0.2em] hover:bg-emerald-800 transition-all flex items-center justify-center gap-3 shadow-2xl rounded-lg active:scale-95 group">
+               <a href="/Parul_Sharma_CV.pdf" download="Parul_Sharma_CV.pdf" className="w-full mt-6 bg-emerald-900 text-stone-50 px-6 py-4 text-xs font-mono font-bold uppercase tracking-[0.2em] hover:bg-emerald-800 transition-all flex items-center justify-center gap-3 shadow-2xl rounded-lg active:scale-95 group">
                  Download CV <Download className="w-4 h-4 transition-transform group-hover:translate-y-1" />
-               </button>
-             </div>
-           </div>
+               </a>
+          </div>
+        </div>
          )}
-       </nav>
+      </nav>
        <main className={`pt-32 sm:pt-40 lg:pt-48 pb-32 sm:pb-40 lg:pb-56 px-4 sm:px-6 lg:px-10 relative z-10 ${isDarkMode ? 'bg-stone-950/5' : 'bg-white/5'}`}>
         <AnimatePresence mode="wait">
           <div key={currentPage}>{renderContent()}</div>
@@ -426,25 +426,25 @@ const App = () => {
              <div className="space-y-8 sm:space-y-12">
                <a href={`mailto:${CONTACT.email}`} className={`text-2xl sm:text-4xl lg:text-5xl xl:text-6xl font-serif italic hover:text-emerald-700 transition-colors border-b-2 ${isDarkMode ? 'border-stone-700 text-stone-200' : 'border-stone-300 text-stone-800'} pb-3 sm:pb-5 block w-max mx-auto lg:mx-0`}>{CONTACT.email}</a>
                <div className="flex flex-col sm:flex-row gap-4 sm:gap-12 lg:gap-20 text-sm sm:text-base font-mono uppercase tracking-[0.2em] sm:tracking-[0.3em] opacity-70 text-stone-500 font-bold justify-center lg:justify-start">
-                 <div>Stillwater, Oklahoma</div>
-                 <div>+1 {CONTACT.phone}</div>
-               </div>
-             </div>
-           </div>
+                <div>Stillwater, Oklahoma</div>
+                <div>+1 {CONTACT.phone}</div>
+              </div>
+            </div>
+          </div>
            <div className="flex flex-col items-center lg:items-end gap-12 sm:gap-16 lg:gap-24">
              <div className="flex gap-6 sm:gap-8 lg:gap-10">
                {[
                  { icon: <Linkedin className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8" />, href: CONTACT.links.linkedin },
                  { icon: <Users className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8" />, href: CONTACT.links.scholar },
                  { icon: <FileText className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8" />, href: CONTACT.links.orcid }
-               ].map((s, i) => (
+              ].map((s, i) => (
                  <a key={i} href={s.href} target="_blank" rel="noreferrer" className={`p-4 sm:p-6 lg:p-8 rounded-full border-2 transition-all duration-700 hover:rotate-[360deg] ${isDarkMode ? 'border-stone-800 hover:bg-emerald-400 hover:text-stone-900' : 'border-stone-200 hover:bg-emerald-800 hover:text-white'} shadow-2xl`}>
-                   {s.icon}
-                 </a>
-               ))}
-             </div>
+                  {s.icon}
+                </a>
+              ))}
+            </div>
              <p className="text-[10px] sm:text-[12px] font-mono opacity-50 uppercase tracking-[0.4em] sm:tracking-[0.6em] text-center lg:text-right text-stone-500 font-extrabold max-w-xs sm:max-w-none">© 2025 {CONTACT.name.toUpperCase()} — RESEARCHER | EDUCATOR | CHEMIST</p>
-           </div>
+          </div>
         </div>
       </footer>
     </div>
