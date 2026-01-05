@@ -11,7 +11,10 @@ import {
   POSTERS,
   SERVICE,
   LICENSES,
-  MEMBERSHIPS
+  MEMBERSHIPS,
+  VISION,
+  SKILLS,
+  PROJECTS,
 } from './constants';
 import {
   BookOpen,
@@ -40,7 +43,6 @@ import {
 
 // --- Components ---
 
-// --- Components ---
 
 const InteractiveLattice = ({ isDarkMode }) => {
   const mouseX = useMotionValue(0);
@@ -143,24 +145,52 @@ const DossierEntry = ({ item, isDarkMode }) => (
 const HomeView = ({ isDarkMode }) => (
   <ViewWrapper>
       <div className="max-w-5xl mx-auto py-12 sm:py-16 lg:py-20 px-4">
-        <div className="text-center mb-16 sm:mb-24 lg:mb-32 relative z-10">
-          <p className={`font-mono text-xs sm:text-sm uppercase tracking-[0.3em] sm:tracking-[0.4em] mb-4 sm:mb-6 ${isDarkMode ? 'text-emerald-400' : 'text-emerald-800'}`}>
-          {CONTACT.title}
+      <div className="flex flex-col lg:flex-row items-center gap-12 sm:gap-24 sm:mb-24 lg:mb-32 relative z-10 px-4">
+        {/* Profile Image with Academic Frame */}
+        <div className="flex-shrink-0 w-64 h-64 sm:w-96 sm:h-96 relative">
+          <div className="absolute inset-0 bg-emerald-800/10 translate-x-4 translate-y-4 rounded-sm border border-emerald-800/20 -z-10" />
+          <div className={`w-full h-full border-2 p-2 ${isDarkMode ? 'bg-stone-900 border-emerald-500/30' : 'bg-white border-stone-200'} shadow-2xl overflow-hidden`}>
+            <img
+              src="/profile.png"
+              alt="Parul Sharma"
+              className="w-full h-full object-cover transition-all duration-700"
+            />
+          </div>
+        </div>
+
+        <div className="text-center lg:text-left flex-grow">
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className={`font-mono text-sm uppercase tracking-[0.4em] mb-6 ${isDarkMode ? 'text-emerald-400' : 'text-emerald-800'}`}
+          >
+            {CONTACT.title}
+          </motion.p>
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className={`text-6xl sm:text-8xl md:text-[9rem] font-serif font-bold tracking-tighter mb-8 ${isDarkMode ? 'text-stone-100' : 'text-stone-900'}`}
+          >
+            {CONTACT.name}
+          </motion.h1>
+          <p className={`text-xl sm:text-2xl font-serif italic leading-relaxed ${isDarkMode ? 'text-stone-400' : 'text-stone-600'}`}>
+            Sustainable visible-light-driven synthesis of bioactive molecules. <br />
+            <span className={`opacity-90 font-sans not-italic text-lg tracking-widest uppercase mt-4 block font-semibold ${isDarkMode ? 'text-emerald-500' : 'text-emerald-900'}`}>{CONTACT.dept} — {CONTACT.inst}</span>
           </p>
-          <h1 className={`text-4xl sm:text-6xl md:text-7xl lg:text-[10rem] font-serif font-bold tracking-tighter mb-8 sm:mb-12 ${isDarkMode ? 'text-stone-100' : 'text-stone-900'}`}>
-          {CONTACT.name}
-          </h1>
-          <p className={`text-lg sm:text-xl md:text-2xl lg:text-3xl font-serif italic max-w-4xl mx-auto leading-relaxed ${isDarkMode ? 'text-stone-400' : 'text-stone-600'}`}>
-            Sustainable visible-light-driven synthesis of bioactive molecules. <br className="hidden sm:block" />
-            <span className={`opacity-90 font-sans not-italic text-base sm:text-lg md:text-xl tracking-wide sm:tracking-widest uppercase mt-3 sm:mt-4 block ${isDarkMode ? 'text-emerald-500' : 'text-emerald-900'} font-semibold`}>Oklahoma State University — Department of Chemistry.</span>
-          </p>
+        </div>
       </div>
-       <div className={`p-6 sm:p-12 lg:p-16 border-t-4 sm:border-t-6 lg:border-t-8 border-emerald-800 shadow-2xl relative backdrop-blur-md ${isDarkMode ? 'bg-stone-950/80' : 'bg-white/95'}`}>
-         <h3 className="text-xs font-mono font-bold uppercase tracking-widest mb-8 sm:mb-12 text-amber-600 border-b border-amber-600/20 pb-3 w-max">Research Statement</h3>
-         <p className={`text-xl sm:text-2xl lg:text-3xl font-serif leading-relaxed ${isDarkMode ? 'text-stone-200' : 'text-stone-800'} first-letter:text-5xl sm:first-letter:text-7xl lg:first-letter:text-9xl first-letter:font-bold first-letter:mr-3 sm:first-letter:mr-4 lg:first-letter:mr-6 first-letter:float-left first-letter:leading-none ${isDarkMode ? 'first-letter:text-emerald-500' : 'first-letter:text-emerald-900'}`}>
-          {OBJECTIVE}
+
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className={`p-10 sm:p-20 border-t-8 border-emerald-800 shadow-2xl relative backdrop-blur-md ${isDarkMode ? 'bg-stone-950/80' : 'bg-white/95'}`}
+      >
+        <h3 className="text-xs font-mono font-bold uppercase tracking-widest mb-12 text-amber-600 border-b border-amber-600/20 pb-3 w-max">My Vision</h3>
+        <p className={`text-2xl sm:text-4xl font-serif leading-relaxed first-letter:text-9xl first-letter:font-bold first-letter:mr-6 first-letter:float-left first-letter:leading-none ${isDarkMode ? 'text-stone-200 first-letter:text-emerald-400' : 'text-stone-800 first-letter:text-emerald-900'}`}>
+          {VISION}
         </p>
-       </div>
+      </motion.div>
     </div>
   </ViewWrapper>
 );
@@ -182,7 +212,31 @@ const ResearchView = ({ isDarkMode }) => (
            </div>
         ))}
       </div>
-      <DossierHeader title="Symposia & Presence" icon={Mic} isDarkMode={isDarkMode} />
+      <DossierHeader title="Key Skills" icon={Microscope} isDarkMode={isDarkMode} />
+      <div className="flex flex-wrap gap-4 mb-24">
+        {SKILLS.map((skill, i) => (
+          <span key={i} className={`px-5 py-2.5 text-xs font-mono font-bold uppercase border-2 shadow-sm ${isDarkMode ? 'border-stone-800 bg-stone-900/50 text-stone-400' : 'border-stone-200 bg-white text-stone-600'}`}>
+            {skill}
+          </span>
+        ))}
+      </div>
+
+      <DossierHeader title="Core Projects" icon={FlaskConical} isDarkMode={isDarkMode} />
+      <div className="grid gap-6 mb-24">
+        {PROJECTS.map((project, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.08 }}
+            className={`p-8 border-l-4 border-emerald-800 backdrop-blur-md shadow-sm transition-all hover:bg-emerald-50/5 ${isDarkMode ? 'bg-stone-900/60' : 'bg-white/95'}`}
+          >
+            <p className={`text-xl sm:text-2xl font-serif italic ${isDarkMode ? 'text-stone-100' : 'text-stone-900'}`}>{project}</p>
+          </motion.div>
+        ))}
+      </div>
+      <DossierHeader title="Research Presentations" icon={Mic} isDarkMode={isDarkMode} />
       <div className="space-y-8">
         {POSTERS.map((poster, i) => (
           <div key={i} className={`p-12 border-l-8 border-emerald-800 backdrop-blur-md transition-all hover:bg-emerald-50/10 ${isDarkMode ? 'bg-stone-900/40' : 'bg-white/90 shadow-lg'}`}>
@@ -220,7 +274,7 @@ const AcademicView = ({ isDarkMode }) => (
         <DossierHeader title="Awards & Fellowships" icon={Trophy} isDarkMode={isDarkMode} />
          <div className="grid gap-8 sm:gap-12 lg:gap-16">
           {HONORS.map((h, i) => (
-            <div key={i} className="border-b border-stone-200 dark:border-stone-800 pb-10 last:border-0 last:pb-0">
+            <div key={i} className={`pb-10 last:pb-0 border-b last:border-0 ${isDarkMode ? 'border-stone-800' : 'border-stone-200'}`}>
               <span className="text-xs sm:text-sm font-mono opacity-50 block mb-2 sm:mb-3 text-stone-500 font-bold uppercase tracking-[0.2em] sm:tracking-[0.3em]">{h.year}</span>
               <p className={`text-xl sm:text-2xl md:text-3xl lg:text-4xl font-serif font-bold ${isDarkMode ? 'text-stone-100' : 'text-stone-900'} leading-tight mb-3 sm:mb-4`}>
                 {h.title}
@@ -236,10 +290,17 @@ const AcademicView = ({ isDarkMode }) => (
   </ViewWrapper>
 );
 
-const OutputView = ({ isDarkMode }) => (
+const PublicationsView = ({ isDarkMode }) => (
   <ViewWrapper>
     <div className={`max-w-6xl mx-auto py-8 sm:py-12 lg:py-16 px-4 ${isDarkMode ? 'bg-stone-950/20' : 'bg-white/30'} backdrop-blur-sm rounded-lg`}>
       <DossierHeader title="Articles & Bibliography" icon={BookOpen} isDarkMode={isDarkMode} />
+
+      <div className={`flex flex-wrap gap-8 sm:gap-16 mb-20 pb-12 border-b ${isDarkMode ? 'border-stone-800' : 'border-stone-200'}`}>
+        <a href={CONTACT.links.scholar} target="_blank" rel="noreferrer" className="flex items-center gap-4 text-sm font-mono font-bold uppercase tracking-[0.3em] hover:text-emerald-600 transition-colors">Google Scholar</a>
+        <a href={CONTACT.links.orcid} target="_blank" rel="noreferrer" className="flex items-center gap-4 text-sm font-mono font-bold uppercase tracking-[0.3em] hover:text-emerald-600 transition-colors">ORCID</a>
+        <a href={CONTACT.links.researchgate} target="_blank" rel="noreferrer" className="flex items-center gap-4 text-sm font-mono font-bold uppercase tracking-[0.3em] hover:text-emerald-600 transition-colors">ResearchGate</a>
+      </div>
+
         <div className="space-y-8">
           {PUBLICATIONS.map((pub, idx) => {
             const getBackgroundClass = () => {
@@ -250,7 +311,7 @@ const OutputView = ({ isDarkMode }) => (
             };
             
             return (
-           <div key={idx} className={`py-8 sm:py-12 lg:py-16 transition-all backdrop-blur-sm ${getBackgroundClass()} border-x border-transparent hover:border-emerald-300 dark:hover:border-emerald-800 hover:shadow-lg`}>
+           <div key={idx} className={`py-8 sm:py-12 lg:py-16 transition-all backdrop-blur-sm ${getBackgroundClass()} border-x border-transparent hover:shadow-lg ${isDarkMode ? 'hover:border-emerald-800' : 'hover:border-emerald-300'}`}>
              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 sm:gap-10 mb-4 sm:mb-6">
                <span className={`text-xs font-mono font-bold uppercase tracking-[0.2em] sm:tracking-[0.3em] ${isDarkMode ? 'text-emerald-400' : 'text-emerald-800'}`}>{pub.journal}</span>
                <span className={`text-sm font-serif font-bold italic font-mono ${isDarkMode ? 'text-stone-400' : 'text-stone-500'}`}>{pub.year}</span>
@@ -291,7 +352,7 @@ const ServiceView = ({ isDarkMode }) => (
         </div>
       </div>
       <DossierHeader title="Outreach & Service" icon={Heart} isDarkMode={isDarkMode} />
-       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-12 mb-20 sm:mb-32 lg:mb-40">
+       <div className="grid sm:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 mb-20 sm:mb-32 lg:mb-40">
         {SERVICE.map((s, idx) => (
            <div key={idx} className={`p-6 sm:p-8 lg:p-12 border transition-all backdrop-blur-md ${isDarkMode ? 'border-stone-800 bg-stone-950/60' : 'border-stone-200 bg-white/95 shadow-xl'}`}>
              <h4 className={`text-xs sm:text-sm font-mono font-bold uppercase tracking-[0.2em] sm:tracking-[0.35em] mb-8 sm:mb-10 lg:mb-12 pb-4 sm:pb-5 border-b ${isDarkMode ? 'border-stone-800 text-stone-200' : 'border-stone-200 text-stone-800'}`}>{s.category}</h4>
@@ -309,6 +370,18 @@ const ServiceView = ({ isDarkMode }) => (
                <li key={i} className="space-y-3 sm:space-y-4">
                  <p className={`font-bold text-lg sm:text-xl lg:text-2xl leading-tight ${isDarkMode ? 'text-stone-100' : 'text-stone-900'} border-l-4 border-amber-600 pl-3 sm:pl-4`}>{l.title}</p>
                  <p className="text-xs opacity-60 font-mono uppercase text-stone-500 tracking-[0.15em] sm:tracking-[0.2em]">{l.org} <br /> {l.date}</p>
+              </li>
+            ))}
+          </ul>
+         </div>
+         <div className={`p-6 sm:p-8 lg:p-12 border backdrop-blur-md ${isDarkMode ? 'border-stone-800 bg-stone-950/60' : 'border-stone-200 bg-white/95 shadow-xl'}`}>
+           <h4 className={`text-xs sm:text-sm font-mono font-bold uppercase tracking-[0.2em] sm:tracking-[0.35em] mb-8 sm:mb-10 lg:mb-12 pb-4 sm:pb-5 border-b ${isDarkMode ? 'border-stone-800 text-stone-200' : 'border-stone-200 text-stone-800'}`}>Professional Memberships</h4>
+           <ul className="space-y-8 sm:space-y-10 lg:space-y-12">
+            {MEMBERSHIPS.map((m, i) => (
+               <li key={i} className="space-y-3 sm:space-y-4">
+                 <p className={`font-bold text-lg sm:text-xl lg:text-2xl leading-tight ${isDarkMode ? 'text-stone-100' : 'text-stone-900'} border-l-4 border-emerald-600 pl-3 sm:pl-4`}>{m.org}</p>
+                 <p className={`text-sm sm:text-base opacity-80 ${isDarkMode ? 'text-stone-300' : 'text-stone-700'} font-serif italic mb-2`}>{m.role}</p>
+                 <p className="text-xs opacity-60 font-mono uppercase text-stone-500 tracking-[0.15em] sm:tracking-[0.2em]">{m.period}</p>
               </li>
             ))}
           </ul>
@@ -341,12 +414,17 @@ const App = () => {
     setIsMobileMenuOpen(false);
   }, [currentPage]);
 
+  // Scroll to top when page changes
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [currentPage]);
+
   const renderContent = () => {
     switch (currentPage) {
       case PAGES.HOME: return <HomeView isDarkMode={isDarkMode} />;
       case PAGES.RESEARCH: return <ResearchView isDarkMode={isDarkMode} />;
       case PAGES.ACADEMIC: return <AcademicView isDarkMode={isDarkMode} />;
-      case PAGES.OUTPUT: return <OutputView isDarkMode={isDarkMode} />;
+      case PAGES.PUBLICATIONS: return <PublicationsView isDarkMode={isDarkMode} />;
       case PAGES.SERVICE: return <ServiceView isDarkMode={isDarkMode} />;
       default: return <HomeView isDarkMode={isDarkMode} />;
     }
@@ -422,12 +500,12 @@ const App = () => {
        <footer className={`py-24 sm:py-40 lg:py-56 border-t px-4 sm:px-6 lg:px-10 overflow-hidden relative z-10 shadow-inner ${isDarkMode ? 'bg-stone-900 border-stone-800' : 'bg-stone-100 border-stone-200'}`}>
          <div className="max-w-7xl mx-auto relative z-10 flex flex-col lg:flex-row justify-between items-center lg:items-end gap-16 sm:gap-24 lg:gap-32">
            <div className="space-y-12 sm:space-y-16 lg:space-y-20 text-center lg:text-left">
-             <h3 className={`text-5xl sm:text-7xl lg:text-8xl xl:text-[10rem] font-serif font-bold tracking-tighter leading-none ${isDarkMode ? 'text-stone-100' : 'text-stone-900'}`}>Academic <span className="italic opacity-30 font-light">&</span> <br /> Resilience<span className="text-emerald-800">.</span></h3>
+             <h3 className={`text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-serif font-bold tracking-tighter leading-none ${isDarkMode ? 'text-stone-100' : 'text-stone-900'}`}>Academic <span className="italic opacity-30 font-light">&</span> <br /> Resilience<span className="text-emerald-800">.</span></h3>
              <div className="space-y-8 sm:space-y-12">
-               <a href={`mailto:${CONTACT.email}`} className={`text-2xl sm:text-4xl lg:text-5xl xl:text-6xl font-serif italic hover:text-emerald-700 transition-colors border-b-2 ${isDarkMode ? 'border-stone-700 text-stone-200' : 'border-stone-300 text-stone-800'} pb-3 sm:pb-5 block w-max mx-auto lg:mx-0`}>{CONTACT.email}</a>
-               <div className="flex flex-col sm:flex-row gap-4 sm:gap-12 lg:gap-20 text-sm sm:text-base font-mono uppercase tracking-[0.2em] sm:tracking-[0.3em] opacity-70 text-stone-500 font-bold justify-center lg:justify-start">
+               <a href={`mailto:${CONTACT.email}`} className={`text-lg sm:text-xl lg:text-2xl xl:text-3xl font-serif italic hover:text-emerald-700 transition-colors border-b-2 ${isDarkMode ? 'border-stone-700 text-stone-200' : 'border-stone-300 text-stone-800'} pb-2 sm:pb-3 block w-max mx-auto lg:mx-0`}>{CONTACT.email}</a>
+               <div className="flex flex-col sm:flex-row gap-3 sm:gap-8 lg:gap-12 text-xs sm:text-sm font-mono uppercase tracking-[0.2em] sm:tracking-[0.25em] opacity-70 text-stone-500 font-bold justify-center lg:justify-start">
                 <div>Stillwater, Oklahoma</div>
-                <div>+1 {CONTACT.phone}</div>
+                <div className="whitespace-nowrap">+1 {CONTACT.phone}</div>
               </div>
             </div>
           </div>
